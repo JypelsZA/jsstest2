@@ -1,0 +1,6 @@
+<table class="table">
+    <% for (const [key, value] of Object.entries(meme)) {%>
+        <tr><td style="font-weight: bold;"><%=key.toUpperCase()%></td><td>:</td><td><%=value%></td></tr>
+        <% } %>
+        <tr><td style="font-weight: bold;">PICTURE</td><td>:</td><td><img src="<%= meme.url %>"/></td></tr>
+</table>

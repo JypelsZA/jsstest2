@@ -1,0 +1,40 @@
+<table class="table" id="memeTable">
+  <th>Meme</th>
+  <th>Name</th>
+  <th>
+    <form action="/memes-overview/" method="POST">
+      <input
+      id="searchField"
+      name="search"
+      type="text"
+      placeholder="Search for memes..."
+      />
+      <button type="submit" class="btn btn-success">Search</button>
+    </form>
+  </th>
+  <% memeData.forEach((meme=>{%>
+  <tr id="<%=meme.id%>"
+    <% if(views.includes(meme.id)){ %>
+      class="viewed"
+      <% }; %>
+      >
+    <td>
+      <img
+        class="meme"
+        src="<%=meme.url%>"
+        height="<%=meme.height/5%>"
+        width="<%=meme.width/5%>" />
+    </td>
+    <td><%=meme.name%></td>
+    <td>
+      <% if(user){ %>
+      <button
+        class="btn btn-success"
+        onclick="sendMeme('http\:\/\/localhost:1337\/meme-details', <%=JSON.stringify(meme.id)%>)">
+        Details
+      </button>
+      <% } %>
+    </td>
+  </tr>
+  <%})) %>
+</table>

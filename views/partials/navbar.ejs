@@ -1,0 +1,45 @@
+<nav
+  id="navbar"
+  class="navbar navbar-expand-lg navbar-light bg-light position-fixed w-100 fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/memes-overview"
+      ><img src="/images/logo.png" id="companyLogo" />
+    </a>
+    <% if(!user){ %>
+    <p>Guest</p>
+    <% }if(user){ %>
+    <p><%=user.username%></p>
+    <% } %>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div
+      class="collapse navbar-collapse justify-content-end"
+      id="navbarSupportedContent">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="/">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/memes-overview">Memes</a>
+        </li>
+        <li class="nav-item">
+          <% if(!user){ %>
+          <a class="nav-link" href="/login">Login</a>
+          <% }if(user){ %>
+          <form action="/login/logout" method="post">
+            <button class="btn" type="submit">Logout</button>
+          </form>
+          <% } %>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

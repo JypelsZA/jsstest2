@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Meme Info</title>
+    <%-include('./partials/head.ejs')%>
+  </head>
+
+  <body class="position-relative" data-bs-spy="scroll">
+    <%- include('./partials/navbar.ejs',{user:user}) %>
+    <section class="container"></section>
+    <%- include('./partials/memeDetails.ejs',{meme:meme}) %>
+    <%- include('./partials/scripts.ejs') %>
+  </body>
+</html>
